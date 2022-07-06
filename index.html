@@ -1,0 +1,33 @@
+{% extends "layout.html" %}
+
+{% block body %}
+
+<h1>Pick your favorite fighter</h1>
+<form action="/favorite" method="post">
+    
+    <!-- let's create form  -->
+    <!-- keep eye on name, this case name holds value of name   -->
+    <input autocomplete="off" autofocus  name= 'name' placeholder = "Name" type="text">
+    
+    <!-- keep eye on name, this case name will holds value of fighter-list from option  -->
+    <select name="fighter-list" id="fighter_name">
+        
+        <!-- first option is just a default message with value - 'none'(this is string not None)  -->
+        <option value="none" disable selected>--select your favorite fighter--</option>
+        
+        <!-- create a list of selection option  -->
+
+        <!-- for fighter in Fighters ---- this Fighters comming from list ina app.py  -->
+        {% for fighter in Fighters %}
+
+        <!-- each  will be   <option value="{{ tony ferguson }}">{{  tony ferguson }}</option>-->
+            <option value="{{fighter}}">{{ fighter }}</option>
+
+        {% endfor %}
+
+    </select>
+    
+    <input type="submit" value="send">
+</form>
+
+{% endblock %}
