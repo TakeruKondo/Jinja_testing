@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block body %}
+<div class="container">
+    <h1 class="heading">お問い合わせ</h1>
+    <form method="POST" action="{{ url_for('home') }}">
+        {{ form.csrf_token }}
+        
+        <table class="contact-table">
+            <tr>
+                <th class="contact-item">{{form.name.label}}</th>
+                <td class="contact-body">{{ form.name }}</td>
+            </tr>
+        
+        
+        <tr>
+            <th class="contact-item">{{form.email.label}}</th>
+            <td class="contact-body">{{ form.email(size=30) }}</td>
+        </tr>
+
+        <tr>
+            <th class="contact-item">{{form.message.label}}</th>
+            <td class="contact-body">{{ form.message(size=30)}}</td>
+        </tr>
+
+    </table>
+        {{ form.submit }}
+    
+    </form>
+</div>
+
+
+    
+
+
+</form>
+
+{% endblock %}
